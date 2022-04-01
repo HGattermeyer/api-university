@@ -3,6 +3,7 @@ export interface IStudent {
   name: string;
   email: string;
   taxId: string;
+  password: string;
   created_at: Date;
   updated_at: Date;
 }
