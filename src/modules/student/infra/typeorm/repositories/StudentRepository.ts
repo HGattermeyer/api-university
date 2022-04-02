@@ -31,10 +31,10 @@ class StudentRepository implements IStudentsRepository {
     return student;
   }
 
-  public async findByTaxId(taxId: string): Promise<IStudent | undefined> {
+  public async findByTaxId(tax_id: string): Promise<IStudent | undefined> {
     const student = await this.ormRepository.findOne({
       where: {
-        taxId: taxId,
+        tax_id: tax_id,
       },
     });
 

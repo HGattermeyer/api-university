@@ -14,25 +14,23 @@ class CreateStudentService {
   public async execute({
     name,
     email,
-    taxId,
+    tax_id,
     password,
   }: ICreateStudent): Promise<IStudent> {
     const emailExists = await this.studentRepository.findByEmail(email);
-
-    if (!emailExists) {
+    if (emailExists) {
       throw new AppError('This email already exists');
     }
 
-    const taxIdExists = await this.studentRepository.findByTaxId(taxId);
-
-    if (!taxIdExists) {
+    const taxIdExists = await this.studentRepository.findByTaxId(tax_id);
+    if (taxIdExists) {
       throw new AppError('This Tax ID already exists');
     }
 
     const student = await this.studentRepository.create({
       name,
       email,
-      taxId,
+      tax_id,
       password,
     });
 
