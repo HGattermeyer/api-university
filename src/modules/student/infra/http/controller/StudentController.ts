@@ -4,11 +4,16 @@ import { container } from 'tsyringe';
 
 export default class StudentController {
   public async create(request: Request, response: Response): Promise<Response> {
-    const { name, email, taxId, password } = request.body;
+    const { name, email, tax_id, password } = request.body;
 
     const createStudent = container.resolve(CreateStudentService);
 
-    const student = createStudent.execute({ name, email, taxId, password });
+    const student = await createStudent.execute({
+      name,
+      email,
+      tax_id,
+      password,
+    });
 
     return response.json(student);
   }

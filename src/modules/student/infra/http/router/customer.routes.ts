@@ -11,7 +11,7 @@ studentRouter.post(
     [Segments.BODY]: {
       name: Joi.string().required(),
       email: Joi.string().email().required(),
-      taxId: Joi.string().required(),
+      tax_id: Joi.string().required(),
       password: Joi.string().required(),
     },
   }),

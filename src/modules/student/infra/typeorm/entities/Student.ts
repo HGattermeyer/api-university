@@ -19,7 +19,7 @@ class Student implements IStudent {
   email: string;
 
   @Column()
-  taxId: string;
+  tax_id: string;
 
   // TODO: Add Exclude
   @Column()

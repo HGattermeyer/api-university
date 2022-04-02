@@ -2,7 +2,7 @@ export interface IStudent {
   id: string;
   name: string;
   email: string;
-  taxId: string;
+  tax_id: string;
   password: string;
   created_at: Date;
   updated_at: Date;

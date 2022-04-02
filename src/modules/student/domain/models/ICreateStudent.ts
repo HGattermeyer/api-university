@@ -1,6 +1,6 @@
 export interface ICreateStudent {
   name: string;
   email: string;
-  taxId: string;
+  tax_id: string;
   password: string;
 }
