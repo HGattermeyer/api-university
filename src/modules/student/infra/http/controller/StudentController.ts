@@ -1,5 +1,6 @@
 import CreateStudentService from '@modules/student/services/CreateStudentService';
 import ListStudentService from '@modules/student/services/ListStudentService';
+import UpdateStudentService from '@modules/student/services/UpdateStudentService';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
@@ -22,6 +23,22 @@ export default class StudentController {
       email,
       tax_id,
       password,
+    });
+
+    return response.json(student);
+  }
+
+  public async update(request: Request, response: Response): Promise<Response> {
+    const { name, email, tax_id } = request.body;
+    const { id } = request.params;
+
+    const updateStudent = container.resolve(UpdateStudentService);
+
+    const student = await updateStudent.execute({
+      name,
+      email,
+      tax_id,
+      id,
     });
 
     return response.json(student);
