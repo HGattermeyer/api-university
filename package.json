@@ -25,9 +25,11 @@
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
+    "celebrate": "^15.0.1",
     "express": "^4.17.3",
     "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
+    "tsyringe": "^4.6.0",
     "typeorm": "^0.2.29"
   }
 }
