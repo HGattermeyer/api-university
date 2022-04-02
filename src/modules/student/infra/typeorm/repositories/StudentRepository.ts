@@ -10,6 +10,11 @@ class StudentRepository implements IStudentsRepository {
   constructor() {
     this.ormRepository = getRepository(Student);
   }
+  public async findAll(): Promise<IStudent[]> {
+    const students = await this.ormRepository.find();
+
+    return students;
+  }
 
   public async findByName(name: string): Promise<IStudent | undefined> {
     const student = await this.ormRepository.findOne({
