@@ -1,4 +1,5 @@
 import CreateStudentService from '@modules/student/services/CreateStudentService';
+import DeleteStudentService from '@modules/student/services/DeleteStudentService';
 import ListStudentService from '@modules/student/services/ListStudentService';
 import UpdateStudentService from '@modules/student/services/UpdateStudentService';
 import { Request, Response } from 'express';
@@ -42,5 +43,15 @@ export default class StudentController {
     });
 
     return response.json(student);
+  }
+
+  public async delete(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+
+    const deleteStudent = container.resolve(DeleteStudentService);
+
+    await deleteStudent.execute({ id });
+
+    return response.json([]);
   }
 }

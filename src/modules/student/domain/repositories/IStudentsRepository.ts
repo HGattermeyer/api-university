@@ -9,4 +9,5 @@ export interface IStudentsRepository {
   findAll(): Promise<IStudent[]>;
   create(data: ICreateStudent): Promise<IStudent>;
   save(student: IStudent): Promise<IStudent>;
+  delete(student: IStudent): Promise<void>;
 }
