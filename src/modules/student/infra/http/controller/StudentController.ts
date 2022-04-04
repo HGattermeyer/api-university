@@ -1,6 +1,8 @@
+import { IStudent } from '@modules/student/domain/models/IStudent';
 import CreateStudentService from '@modules/student/services/CreateStudentService';
 import DeleteStudentService from '@modules/student/services/DeleteStudentService';
 import ListStudentService from '@modules/student/services/ListStudentService';
+import ShowStudentService from '@modules/student/services/ShowStudentService';
 import UpdateStudentService from '@modules/student/services/UpdateStudentService';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
@@ -53,5 +55,15 @@ export default class StudentController {
     await deleteStudent.execute({ id });
 
     return response.json([]);
+  }
+
+  public async show(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+
+    const showStudent = container.resolve(ShowStudentService);
+
+    const student = await showStudent.execute({ id });
+
+    return response.json(student);
   }
 }

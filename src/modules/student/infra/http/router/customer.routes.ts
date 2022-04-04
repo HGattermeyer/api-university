@@ -41,4 +41,12 @@ studentRouter.delete(
   studentsController.delete,
 );
 
+studentRouter.get(
+  '/:id',
+  celebrate({
+    [Segments.PARAMS]: { id: Joi.string().uuid().required() },
+  }),
+  studentsController.show,
+);
+
 export default studentRouter;
