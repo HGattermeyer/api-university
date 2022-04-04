@@ -1,3 +1,3 @@
-export interface IUpdateCourse {
+export interface ICreateCourse {
   name: string;
 }

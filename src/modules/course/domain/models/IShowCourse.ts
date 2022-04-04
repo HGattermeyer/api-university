@@ -1,3 +1,3 @@
-export interface IUpdateCourse {
+export interface IShowCourse {
   id: string;
 }
