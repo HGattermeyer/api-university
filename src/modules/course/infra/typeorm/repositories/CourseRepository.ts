@@ -32,13 +32,15 @@ class CourseRepository implements ICoursesRepository {
 
     return course;
   }
+
   public async save(course: ICourse): Promise<ICourse> {
     const updatedCourse = await this.ormRepository.save(course);
 
     return updatedCourse;
   }
+
   public async delete(course: ICourse): Promise<void> {
-    this.ormRepository.remove(course);
+    await this.ormRepository.remove(course);
   }
 }
 

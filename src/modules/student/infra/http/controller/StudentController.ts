@@ -1,4 +1,3 @@
-import { IStudent } from '@modules/student/domain/models/IStudent';
 import CreateStudentService from '@modules/student/services/CreateStudentService';
 import DeleteStudentService from '@modules/student/services/DeleteStudentService';
 import ListStudentService from '@modules/student/services/ListStudentService';
